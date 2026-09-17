@@ -1,0 +1,13 @@
+title = "gitleaks config - Gestor de tareas colaborativo"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Directorios que no son parte del codigo entregado"
+paths = [
+  '''pipeline/\.venv/.*''',
+  '''pipeline/\.venv-app/.*''',
+  '''\.git/.*''',
+  '''reportes/.*''',
+]
