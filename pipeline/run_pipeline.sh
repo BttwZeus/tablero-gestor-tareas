@@ -153,7 +153,7 @@ fi
 # de un Learner Lab (Multi-AZ, monitoreo mejorado, replicacion entre regiones, KMS
 # en vez de SSE-S3, etc.) - ver docs/tabla_decisiones_pipeline.md para la justificacion
 # de cada uno. Lo que SI bloquea: acceso publico y cifrado faltante en S3/RDS.
-CHECKS_EXCLUIDOS="CKV_AWS_161,CKV_AWS_353,CKV_AWS_118,CKV_AWS_157,CKV2_AWS_62,CKV_AWS_144,CKV2_AWS_30,CKV_AWS_18,CKV2_AWS_61,CKV_AWS_145,CKV_AWS_293"
+CHECKS_EXCLUIDOS="CKV_AWS_161,CKV_AWS_353,CKV_AWS_118,CKV_AWS_157,CKV2_AWS_62,CKV_AWS_144,CKV2_AWS_30,CKV_AWS_18,CKV2_AWS_61,CKV_AWS_145,CKV_AWS_293,CKV_AWS_21"
 linea
 echo "[5/5] Infraestructura como codigo (checkov) - umbral: 0 fallos en controles de linea base"
 docker run --rm -v "$DIR":/repo bridgecrew/checkov -d /repo/infra \

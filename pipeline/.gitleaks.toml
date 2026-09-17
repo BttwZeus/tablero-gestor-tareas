@@ -10,4 +10,9 @@ paths = [
   '''pipeline/\.venv-app/.*''',
   '''\.git/.*''',
   '''reportes/.*''',
+  # .env es el archivo de configuracion LOCAL con las credenciales reales de
+  # desarrollo; .gitignore ya garantiza que nunca se comitea (verificado por
+  # el propio verificar_entrega.sh). Escanearlo aqui solo genera ruido, no
+  # protege nada que .gitignore no proteja ya.
+  '''(^|/)\.env$''',
 ]

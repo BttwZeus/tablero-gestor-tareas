@@ -21,8 +21,8 @@ File:        /repo/app/config.py
 Line:        8
 Fingerprint: /repo/app/config.py:generic-api-key:8
 
-[90m4:18AM[0m [32mINF[0m [1mscanned ~52306 bytes (52.31 KB) in 262ms[0m
-[90m4:18AM[0m [33mWRN[0m [1mleaks found: 1[0m
+[90m7:16AM[0m [32mINF[0m [1mscanned ~118171 bytes (118.17 KB) in 712ms[0m
+[90m7:16AM[0m [33mWRN[0m [1mleaks found: 1[0m
   >> Etapa BLOQUEA: se encontraron secretos en el codigo
 --------------------------------------------------------------
 [3/5] Analisis estatico de codigo (bandit) - umbral: 0 hallazgos HIGH
@@ -38,1070 +38,6 @@ Found 4 known vulnerabilities in 1 package
     "check_type": "terraform",
     "results": {
         "passed_checks": [
-            {
-                "check_id": "CKV_AWS_93",
-                "bc_check_id": "BC_AWS_S3_24",
-                "check_name": "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "policy"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    20,
-                    22
-                ],
-                "resource": "aws_s3_bucket.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.S3ProtectAgainstPolicyLockout",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "bucket": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        },
-                        {
-                            "type": "resource",
-                            "name": "aws_s3_bucket.adjuntos",
-                            "path": "/repo/infra/main.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_53",
-                "bc_check_id": "BC_AWS_S3_19",
-                "check_name": "Ensure S3 bucket has block public ACLS enabled",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "block_public_acls"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    24,
-                    31
-                ],
-                "resource": "aws_s3_bucket_public_access_block.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.S3BlockPublicACLs",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf"
-            },
-            {
-                "check_id": "CKV_AWS_54",
-                "bc_check_id": "BC_AWS_S3_20",
-                "check_name": "Ensure S3 bucket has block public policy enabled",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "block_public_policy"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    24,
-                    31
-                ],
-                "resource": "aws_s3_bucket_public_access_block.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.S3BlockPublicPolicy",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf"
-            },
-            {
-                "check_id": "CKV_AWS_55",
-                "bc_check_id": "BC_AWS_S3_21",
-                "check_name": "Ensure S3 bucket has ignore public ACLs enabled",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "ignore_public_acls"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    24,
-                    31
-                ],
-                "resource": "aws_s3_bucket_public_access_block.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.S3IgnorePublicACLs",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf"
-            },
-            {
-                "check_id": "CKV_AWS_56",
-                "bc_check_id": "BC_AWS_S3_22",
-                "check_name": "Ensure S3 bucket has 'restrict_public_buckets' enabled",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "restrict_public_buckets"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    24,
-                    31
-                ],
-                "resource": "aws_s3_bucket_public_access_block.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.S3RestrictPublicBuckets",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf"
-            },
-            {
-                "check_id": "CKV_AWS_24",
-                "bc_check_id": "BC_AWS_NETWORKING_1",
-                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": []
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress22",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_25",
-                "bc_check_id": "BC_AWS_NETWORKING_2",
-                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": []
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress3389",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_23",
-                "bc_check_id": "BC_AWS_NETWORKING_31",
-                "check_name": "Ensure every security group and rule has a description",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "description"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupRuleDescription",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_260",
-                "bc_check_id": "BC_AWS_NETWORKING_67",
-                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": []
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress80",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_277",
-                "bc_check_id": "BC_AWS_NETWORKING_78",
-                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": []
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngressAny",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-group-does-not-allow-all-traffic-on-all-ports",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_382",
-                "bc_check_id": "BC_AWS_IAM_93",
-                "check_name": "Ensure no security groups allow egress from 0.0.0.0:0 to port -1",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "from_port",
-                        "to_port",
-                        "cidr_ipv4",
-                        "cidr_ipv6"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    53,
-                    67
-                ],
-                "resource": "aws_security_group.rds",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedEgressAny",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-382",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "name": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_133",
-                "bc_check_id": "BC_AWS_GENERAL_46",
-                "check_name": "Ensure that RDS instances has backup policy",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "backup_retention_period"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceBackupRetentionPeriod",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-rds-instances-have-backup-policy",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_211",
-                "bc_check_id": "BC_AWS_GENERAL_118",
-                "check_name": "Ensure RDS uses a modern CaCert",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "ca_cert_identifier"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.RDSCACertIsRecent",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-rds-uses-a-modern-cacert",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_250",
-                "bc_check_id": "BC_AWS_GENERAL_130",
-                "check_name": "Ensure that RDS PostgreSQL instances use a non vulnerable version with the log_fdw extension (https://aws.amazon.com/security/security-bulletins/AWS-2022-004/)",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "engine",
-                        "engine_version"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.RDSPostgreSQLLogFDWExtension",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-rds-postgresql-instances-use-a-non-vulnerable-version-of-log-fdw-extension",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_16",
-                "bc_check_id": "BC_AWS_GENERAL_4",
-                "check_name": "Ensure all data stored in the RDS is securely encrypted at rest",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "storage_encrypted"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.RDSEncryption",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-4",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_226",
-                "bc_check_id": "BC_AWS_GENERAL_121",
-                "check_name": "Ensure DB instance gets all minor upgrades automatically",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "auto_minor_version_upgrade"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceMinorUpgrade",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-db-instance-gets-all-minor-upgrades-automatically",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_17",
-                "bc_check_id": "BC_AWS_PUBLIC_2",
-                "check_name": "Ensure all data stored in RDS is not publicly accessible",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "publicly_accessible"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.RDSPubliclyAccessible",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/public-policies/public-2",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_354",
-                "bc_check_id": "BC_AWS_GENERAL_254",
-                "check_name": "Ensure RDS Performance Insights are encrypted using KMS CMKs",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "performance_insights_kms_key_id"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.RDSInstancePerfInsightsEncryptionWithCMK",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-354",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_129",
-                "bc_check_id": "BC_AWS_IAM_60",
-                "check_name": "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": [
-                        "enabled_cloudwatch_logs_exports/[0]"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceLogging",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-that-respective-logs-of-amazon-relational-database-service-amazon-rds-are-enabled",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_388",
-                "bc_check_id": null,
-                "check_name": "Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability",
-                "check_result": {
-                    "result": "PASSED",
-                    "evaluated_keys": []
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    69,
-                    90
-                ],
-                "resource": "aws_db_instance.tablero",
-                "evaluations": null,
-                "check_class": "checkov.terraform.checks.resource.aws.UnpatchedAuroraPostgresDB",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": {},
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": null,
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "db_name": [
-                        {
-                            "type": "variable",
-                            "name": "db_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
-                    "username": [
-                        {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ]
-                }
-            },
             {
                 "check_id": "CKV_AWS_41",
                 "bc_check_id": "BC_AWS_SECRETS_5",
@@ -1140,8 +76,1540 @@ Found 4 known vulnerabilities in 1 package
                 "breadcrumbs": {
                     "region": [
                         {
+                            "type": "tfvar",
+                            "name": "aws_region",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
                             "type": "variable",
                             "name": "aws_region",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_93",
+                "bc_check_id": "BC_AWS_S3_24",
+                "check_name": "Ensure S3 bucket policy does not lockout all but root user. (Prevent lockouts needing root account fixes)",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "policy"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    20,
+                    26
+                ],
+                "resource": "aws_s3_bucket.adjuntos",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.S3ProtectAgainstPolicyLockout",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-24",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "bucket": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_53",
+                "bc_check_id": "BC_AWS_S3_19",
+                "check_name": "Ensure S3 bucket has block public ACLS enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "block_public_acls"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    28,
+                    35
+                ],
+                "resource": "aws_s3_bucket_public_access_block.adjuntos",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.S3BlockPublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-19",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf"
+            },
+            {
+                "check_id": "CKV_AWS_54",
+                "bc_check_id": "BC_AWS_S3_20",
+                "check_name": "Ensure S3 bucket has block public policy enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "block_public_policy"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    28,
+                    35
+                ],
+                "resource": "aws_s3_bucket_public_access_block.adjuntos",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.S3BlockPublicPolicy",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-20",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf"
+            },
+            {
+                "check_id": "CKV_AWS_55",
+                "bc_check_id": "BC_AWS_S3_21",
+                "check_name": "Ensure S3 bucket has ignore public ACLs enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "ignore_public_acls"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    28,
+                    35
+                ],
+                "resource": "aws_s3_bucket_public_access_block.adjuntos",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.S3IgnorePublicACLs",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-21",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf"
+            },
+            {
+                "check_id": "CKV_AWS_56",
+                "bc_check_id": "BC_AWS_S3_22",
+                "check_name": "Ensure S3 bucket has 'restrict_public_buckets' enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "restrict_public_buckets"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    28,
+                    35
+                ],
+                "resource": "aws_s3_bucket_public_access_block.adjuntos",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.S3RestrictPublicBuckets",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/bc-aws-s3-22",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf"
+            },
+            {
+                "check_id": "CKV_AWS_24",
+                "bc_check_id": "BC_AWS_NETWORKING_1",
+                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 22",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress22",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-1-port-security",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_25",
+                "bc_check_id": "BC_AWS_NETWORKING_2",
+                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 3389",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress3389",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-2",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_23",
+                "bc_check_id": "BC_AWS_NETWORKING_31",
+                "check_name": "Ensure every security group and rule has a description",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "description"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupRuleDescription",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-31",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_260",
+                "bc_check_id": "BC_AWS_NETWORKING_67",
+                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port 80",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngress80",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-groups-do-not-allow-ingress-from-00000-to-port-80",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_277",
+                "bc_check_id": "BC_AWS_NETWORKING_78",
+                "check_name": "Ensure no security groups allow ingress from 0.0.0.0:0 to port -1",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedIngressAny",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-security-group-does-not-allow-all-traffic-on-all-ports",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_382",
+                "bc_check_id": "BC_AWS_IAM_93",
+                "check_name": "Ensure no security groups allow egress from 0.0.0.0:0 to port -1",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "from_port",
+                        "to_port",
+                        "cidr_ipv4",
+                        "cidr_ipv6"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    50,
+                    64
+                ],
+                "resource": "aws_security_group.rds",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SecurityGroupUnrestrictedEgressAny",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/bc-aws-382",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "name": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_133",
+                "bc_check_id": "BC_AWS_GENERAL_46",
+                "check_name": "Ensure that RDS instances has backup policy",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "backup_retention_period"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceBackupRetentionPeriod",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-that-rds-instances-have-backup-policy",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_211",
+                "bc_check_id": "BC_AWS_GENERAL_118",
+                "check_name": "Ensure RDS uses a modern CaCert",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "ca_cert_identifier"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.RDSCACertIsRecent",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-rds-uses-a-modern-cacert",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_250",
+                "bc_check_id": "BC_AWS_GENERAL_130",
+                "check_name": "Ensure that RDS PostgreSQL instances use a non vulnerable version with the log_fdw extension (https://aws.amazon.com/security/security-bulletins/AWS-2022-004/)",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "engine",
+                        "engine_version"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.RDSPostgreSQLLogFDWExtension",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-rds-postgresql-instances-use-a-non-vulnerable-version-of-log-fdw-extension",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_16",
+                "bc_check_id": "BC_AWS_GENERAL_4",
+                "check_name": "Ensure all data stored in the RDS is securely encrypted at rest",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "storage_encrypted"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.RDSEncryption",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/general-4",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_226",
+                "bc_check_id": "BC_AWS_GENERAL_121",
+                "check_name": "Ensure DB instance gets all minor upgrades automatically",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "auto_minor_version_upgrade"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceMinorUpgrade",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/ensure-aws-db-instance-gets-all-minor-upgrades-automatically",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_17",
+                "bc_check_id": "BC_AWS_PUBLIC_2",
+                "check_name": "Ensure all data stored in RDS is not publicly accessible",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "publicly_accessible"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.RDSPubliclyAccessible",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/public-policies/public-2",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_354",
+                "bc_check_id": "BC_AWS_GENERAL_254",
+                "check_name": "Ensure RDS Performance Insights are encrypted using KMS CMKs",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "performance_insights_kms_key_id"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.RDSInstancePerfInsightsEncryptionWithCMK",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-general-policies/bc-aws-354",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_129",
+                "bc_check_id": "BC_AWS_IAM_60",
+                "check_name": "Ensure that respective logs of Amazon Relational Database Service (Amazon RDS) are enabled",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "enabled_cloudwatch_logs_exports/[0]"
+                    ]
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.DBInstanceLogging",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-iam-policies/ensure-that-respective-logs-of-amazon-relational-database-service-amazon-rds-are-enabled",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV_AWS_388",
+                "bc_check_id": null,
+                "check_name": "Ensure AWS Aurora PostgreSQL is not exposed to local file read vulnerability",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": null,
+                "file_path": "/main.tf",
+                "file_abs_path": "/repo/infra/main.tf",
+                "repo_file_path": "/repo/infra/main.tf",
+                "file_line_range": [
+                    66,
+                    87
+                ],
+                "resource": "aws_db_instance.tablero",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.UnpatchedAuroraPostgresDB",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": {},
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": null,
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/repo/infra/main.tf",
+                "breadcrumbs": {
+                    "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
                             "path": "/repo/infra/variables.tf",
                             "module_connection": false
                         }
@@ -1157,8 +1625,8 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_db_instance": {
                             "tablero": {
-                                "__end_line__": 90,
-                                "__start_line__": 69,
+                                "__end_line__": 87,
+                                "__start_line__": 66,
                                 "allocated_storage": [
                                     20
                                 ],
@@ -1186,10 +1654,10 @@ Found 4 known vulnerabilities in 1 package
                                     "postgres"
                                 ],
                                 "engine_version": [
-                                    "16.4"
+                                    "16.9"
                                 ],
                                 "identifier": [
-                                    "gestor-tareas-db"
+                                    "zeus-gestor-tareas-db"
                                 ],
                                 "instance_class": [
                                     "db.t3.micro"
@@ -1229,8 +1697,8 @@ Found 4 known vulnerabilities in 1 package
                 "file_abs_path": "/repo/infra/main.tf",
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
-                    69,
-                    90
+                    66,
+                    87
                 ],
                 "resource": "aws_db_instance.tablero",
                 "evaluations": null,
@@ -1252,15 +1720,13 @@ Found 4 known vulnerabilities in 1 package
                 "check_len": null,
                 "definition_context_file_path": "/repo/infra/main.tf",
                 "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "db_name",
@@ -1268,7 +1734,33 @@ Found 4 known vulnerabilities in 1 package
                             "module_connection": false
                         }
                     ],
+                    "identifier": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
                     "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "db_username",
@@ -1287,8 +1779,8 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_security_group": {
                             "rds": {
-                                "__end_line__": 67,
-                                "__start_line__": 53,
+                                "__end_line__": 64,
+                                "__start_line__": 50,
                                 "description": [
                                     "Permite Postgres solo desde la instancia de la aplicacion"
                                 ],
@@ -1296,7 +1788,7 @@ Found 4 known vulnerabilities in 1 package
                                     {
                                         "cidr_blocks": [
                                             [
-                                                "var.allowed_app_cidr"
+                                                "172.31.0.0/16"
                                             ]
                                         ],
                                         "description": [
@@ -1314,7 +1806,7 @@ Found 4 known vulnerabilities in 1 package
                                     }
                                 ],
                                 "name": [
-                                    "gestor-tareas-rds-sg"
+                                    "zeus-gestor-tareas-rds-sg"
                                 ],
                                 "__address__": "aws_security_group.rds",
                                 "__provider_address__": "aws.default"
@@ -1322,8 +1814,8 @@ Found 4 known vulnerabilities in 1 package
                         }
                     },
                     "evaluated_keys": [
-                        "networking",
-                        "resource_type"
+                        "resource_type",
+                        "networking"
                     ]
                 },
                 "code_block": null,
@@ -1331,8 +1823,8 @@ Found 4 known vulnerabilities in 1 package
                 "file_abs_path": "/repo/infra/main.tf",
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
-                    53,
-                    67
+                    50,
+                    64
                 ],
                 "resource": "aws_security_group.rds",
                 "evaluations": null,
@@ -1356,8 +1848,48 @@ Found 4 known vulnerabilities in 1 package
                 "breadcrumbs": {
                     "name": [
                         {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
                             "type": "variable",
                             "name": "app_name",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_s3_bucket.adjuntos",
+                            "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks.0": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/variables.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "ingress.cidr_blocks": [
+                        {
+                            "type": "tfvar",
+                            "name": "allowed_app_cidr",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "allowed_app_cidr",
                             "path": "/repo/infra/variables.tf",
                             "module_connection": false
                         }
@@ -1365,18 +1897,21 @@ Found 4 known vulnerabilities in 1 package
                 }
             },
             {
-                "check_id": "CKV_AWS_21",
-                "bc_check_id": "BC_AWS_S3_16",
-                "check_name": "Ensure all data stored in the S3 bucket have versioning enabled",
+                "check_id": "CKV_AWS_19",
+                "bc_check_id": "BC_AWS_S3_14",
+                "check_name": "Ensure all data stored in the S3 bucket is securely encrypted at rest",
                 "check_result": {
                     "result": "PASSED",
                     "entity": {
                         "aws_s3_bucket": {
                             "adjuntos": {
-                                "__end_line__": 22,
+                                "__end_line__": 26,
                                 "__start_line__": 20,
                                 "bucket": [
-                                    "gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                    "zeus-gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                ],
+                                "object_lock_enabled": [
+                                    false
                                 ],
                                 "__address__": "aws_s3_bucket.adjuntos",
                                 "__provider_address__": "aws.default"
@@ -1384,8 +1919,8 @@ Found 4 known vulnerabilities in 1 package
                         }
                     },
                     "evaluated_keys": [
-                        "versioning_configuration/status",
-                        "versioning/enabled",
+                        "server_side_encryption_configuration/rule/apply_server_side_encryption_by_default/sse_algorithm",
+                        "rule/apply_server_side_encryption_by_default/sse_algorithm",
                         "resource_type"
                     ]
                 },
@@ -1395,7 +1930,7 @@ Found 4 known vulnerabilities in 1 package
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
                     20,
-                    22
+                    26
                 ],
                 "resource": "aws_s3_bucket.adjuntos",
                 "evaluations": null,
@@ -1412,12 +1947,18 @@ Found 4 known vulnerabilities in 1 package
                 "short_description": null,
                 "vulnerability_details": null,
                 "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-16-enable-versioning",
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest",
                 "details": [],
                 "check_len": null,
                 "definition_context_file_path": "/repo/infra/main.tf",
                 "breadcrumbs": {
                     "bucket": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "app_name",
@@ -1442,8 +1983,8 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_db_instance": {
                             "tablero": {
-                                "__end_line__": 90,
-                                "__start_line__": 69,
+                                "__end_line__": 87,
+                                "__start_line__": 66,
                                 "allocated_storage": [
                                     20
                                 ],
@@ -1471,10 +2012,10 @@ Found 4 known vulnerabilities in 1 package
                                     "postgres"
                                 ],
                                 "engine_version": [
-                                    "16.4"
+                                    "16.9"
                                 ],
                                 "identifier": [
-                                    "gestor-tareas-db"
+                                    "zeus-gestor-tareas-db"
                                 ],
                                 "instance_class": [
                                     "db.t3.micro"
@@ -1507,9 +2048,9 @@ Found 4 known vulnerabilities in 1 package
                     "evaluated_keys": [
                         "parameter[?(@/name=='db2comm')]/value",
                         "family",
-                        "parameter[?(@/name=='require_secure_transport')]/value",
                         "parameter[?(@/name=='rds/force_ssl')]/value",
-                        "resource_type"
+                        "resource_type",
+                        "parameter[?(@/name=='require_secure_transport')]/value"
                     ]
                 },
                 "code_block": null,
@@ -1517,8 +2058,8 @@ Found 4 known vulnerabilities in 1 package
                 "file_abs_path": "/repo/infra/main.tf",
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
-                    69,
-                    90
+                    66,
+                    87
                 ],
                 "resource": "aws_db_instance.tablero",
                 "evaluations": null,
@@ -1540,15 +2081,13 @@ Found 4 known vulnerabilities in 1 package
                 "check_len": null,
                 "definition_context_file_path": "/repo/infra/main.tf",
                 "breadcrumbs": {
-                    "identifier": [
-                        {
-                            "type": "variable",
-                            "name": "app_name",
-                            "path": "/repo/infra/variables.tf",
-                            "module_connection": false
-                        }
-                    ],
                     "db_name": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "db_name",
@@ -1556,70 +2095,13 @@ Found 4 known vulnerabilities in 1 package
                             "module_connection": false
                         }
                     ],
-                    "username": [
+                    "identifier": [
                         {
-                            "type": "variable",
-                            "name": "db_username",
-                            "path": "/repo/infra/variables.tf",
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
                             "module_connection": false
-                        }
-                    ]
-                }
-            },
-            {
-                "check_id": "CKV_AWS_19",
-                "bc_check_id": "BC_AWS_S3_14",
-                "check_name": "Ensure all data stored in the S3 bucket is securely encrypted at rest",
-                "check_result": {
-                    "result": "PASSED",
-                    "entity": {
-                        "aws_s3_bucket": {
-                            "adjuntos": {
-                                "__end_line__": 22,
-                                "__start_line__": 20,
-                                "bucket": [
-                                    "gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
-                                ],
-                                "__address__": "aws_s3_bucket.adjuntos",
-                                "__provider_address__": "aws.default"
-                            }
-                        }
-                    },
-                    "evaluated_keys": [
-                        "rule/apply_server_side_encryption_by_default/sse_algorithm",
-                        "server_side_encryption_configuration/rule/apply_server_side_encryption_by_default/sse_algorithm",
-                        "resource_type"
-                    ]
-                },
-                "code_block": null,
-                "file_path": "/main.tf",
-                "file_abs_path": "/repo/infra/main.tf",
-                "repo_file_path": "/repo/infra/main.tf",
-                "file_line_range": [
-                    20,
-                    22
-                ],
-                "resource": "aws_s3_bucket.adjuntos",
-                "evaluations": null,
-                "check_class": "checkov.common.graph.checks_infra.base_check",
-                "fixed_definition": null,
-                "entity_tags": null,
-                "caller_file_path": null,
-                "caller_file_line_range": null,
-                "resource_address": null,
-                "severity": null,
-                "bc_category": null,
-                "benchmarks": null,
-                "description": null,
-                "short_description": null,
-                "vulnerability_details": null,
-                "connected_node": null,
-                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/s3-policies/s3-14-data-encrypted-at-rest",
-                "details": [],
-                "check_len": null,
-                "definition_context_file_path": "/repo/infra/main.tf",
-                "breadcrumbs": {
-                    "bucket": [
+                        },
                         {
                             "type": "variable",
                             "name": "app_name",
@@ -1630,6 +2112,20 @@ Found 4 known vulnerabilities in 1 package
                             "type": "resource",
                             "name": "aws_s3_bucket.adjuntos",
                             "path": "/repo/infra/main.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "username": [
+                        {
+                            "type": "tfvar",
+                            "name": "db_username",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "variable",
+                            "name": "db_username",
+                            "path": "/repo/infra/variables.tf",
                             "module_connection": false
                         }
                     ]
@@ -1644,10 +2140,13 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_s3_bucket": {
                             "adjuntos": {
-                                "__end_line__": 22,
+                                "__end_line__": 26,
                                 "__start_line__": 20,
                                 "bucket": [
-                                    "gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                    "zeus-gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                ],
+                                "object_lock_enabled": [
+                                    false
                                 ],
                                 "__address__": "aws_s3_bucket.adjuntos",
                                 "__provider_address__": "aws.default"
@@ -1655,12 +2154,12 @@ Found 4 known vulnerabilities in 1 package
                         }
                     },
                     "evaluated_keys": [
-                        "access_control_policy/grant/*/permission",
                         "acl",
-                        "access_control_policy",
                         "access_control_policy/grant",
+                        "access_control_policy",
+                        "access_control_policy/grant/*/grantee/uri",
                         "resource_type",
-                        "access_control_policy/grant/*/grantee/uri"
+                        "access_control_policy/grant/*/permission"
                     ]
                 },
                 "code_block": null,
@@ -1669,7 +2168,7 @@ Found 4 known vulnerabilities in 1 package
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
                     20,
-                    22
+                    26
                 ],
                 "resource": "aws_s3_bucket.adjuntos",
                 "evaluations": null,
@@ -1692,6 +2191,12 @@ Found 4 known vulnerabilities in 1 package
                 "definition_context_file_path": "/repo/infra/main.tf",
                 "breadcrumbs": {
                     "bucket": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "app_name",
@@ -1716,10 +2221,13 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_s3_bucket": {
                             "adjuntos": {
-                                "__end_line__": 22,
+                                "__end_line__": 26,
                                 "__start_line__": 20,
                                 "bucket": [
-                                    "gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                    "zeus-gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                ],
+                                "object_lock_enabled": [
+                                    false
                                 ],
                                 "__address__": "aws_s3_bucket.adjuntos",
                                 "__provider_address__": "aws.default"
@@ -1728,10 +2236,10 @@ Found 4 known vulnerabilities in 1 package
                     },
                     "evaluated_keys": [
                         "acl",
-                        "access_control_policy",
                         "access_control_policy/grant",
-                        "resource_type",
-                        "access_control_policy/grant/*/grantee/uri"
+                        "access_control_policy",
+                        "access_control_policy/grant/*/grantee/uri",
+                        "resource_type"
                     ]
                 },
                 "code_block": null,
@@ -1740,7 +2248,7 @@ Found 4 known vulnerabilities in 1 package
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
                     20,
-                    22
+                    26
                 ],
                 "resource": "aws_s3_bucket.adjuntos",
                 "evaluations": null,
@@ -1763,6 +2271,12 @@ Found 4 known vulnerabilities in 1 package
                 "definition_context_file_path": "/repo/infra/main.tf",
                 "breadcrumbs": {
                     "bucket": [
+                        {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
                         {
                             "type": "variable",
                             "name": "app_name",
@@ -1787,10 +2301,13 @@ Found 4 known vulnerabilities in 1 package
                     "entity": {
                         "aws_s3_bucket": {
                             "adjuntos": {
-                                "__end_line__": 22,
+                                "__end_line__": 26,
                                 "__start_line__": 20,
                                 "bucket": [
-                                    "gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                    "zeus-gestor-tareas-adjuntos-${data.aws_caller_identity.current.account_id}"
+                                ],
+                                "object_lock_enabled": [
+                                    false
                                 ],
                                 "__address__": "aws_s3_bucket.adjuntos",
                                 "__provider_address__": "aws.default"
@@ -1798,9 +2315,9 @@ Found 4 known vulnerabilities in 1 package
                         }
                     },
                     "evaluated_keys": [
+                        "resource_type",
                         "block_public_policy",
-                        "block_public_acls",
-                        "resource_type"
+                        "block_public_acls"
                     ]
                 },
                 "code_block": null,
@@ -1809,7 +2326,7 @@ Found 4 known vulnerabilities in 1 package
                 "repo_file_path": "/repo/infra/main.tf",
                 "file_line_range": [
                     20,
-                    22
+                    26
                 ],
                 "resource": "aws_s3_bucket.adjuntos",
                 "evaluations": null,
@@ -1833,6 +2350,12 @@ Found 4 known vulnerabilities in 1 package
                 "breadcrumbs": {
                     "bucket": [
                         {
+                            "type": "tfvar",
+                            "name": "app_name",
+                            "path": "/repo/infra/terraform.tfvars",
+                            "module_connection": false
+                        },
+                        {
                             "type": "variable",
                             "name": "app_name",
                             "path": "/repo/infra/variables.tf",
@@ -1853,11 +2376,11 @@ Found 4 known vulnerabilities in 1 package
         "parsing_errors": []
     },
     "summary": {
-        "passed": 29,
+        "passed": 28,
         "failed": 0,
         "skipped": 0,
         "parsing_errors": 0,
-        "resource_count": 6,
+        "resource_count": 5,
         "checkov_version": "3.3.17"
     },
     "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
